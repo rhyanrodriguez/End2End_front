@@ -6,7 +6,14 @@ const Home = (props) => {
     const { loggedIn, email } = props
     const navigate = useNavigate()
   
-    const onButtonClick = () => {}
+    const onButtonClick = () => {
+      if (loggedIn){
+        localStorage.removeItem("user")
+        props.setLoggedIn(false)
+      }else{
+        navigate("/login")
+      }
+    }
   
     return  (
     <div className='mainContainer'>
