@@ -1,3 +1,16 @@
 {
-    "users": []
+    "users": [
+        {
+            "email": "romulo@talst.com.br",
+            "password": "T@lst2024"
+        },
+        {
+            "email": "alisson@talst.com.br",
+            "password": "T@lst2024"
+        },
+        {
+            "email": "anderson@talst.com.br",
+            "password": "T@lst2024"
+        }
+    ]
 }
