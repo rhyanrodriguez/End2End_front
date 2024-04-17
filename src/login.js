@@ -10,7 +10,7 @@ const Login = (props) => {
   const navigate = useNavigate()
 
   const onButtonClick = () => {
-    
+
     setEmailError('')
     setPasswordError('')
   
@@ -33,7 +33,7 @@ const Login = (props) => {
       setPasswordError('The password must be 8 characters or longer')
       return
     }
-    // i'll update this function later
+   
   }
 
   return (
