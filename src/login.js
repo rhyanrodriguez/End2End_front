@@ -38,7 +38,7 @@ const Login = (props) => {
             if (accountExists)
                 logIn()
             else
-            // Else, ask user if they want to create a new account and if yes, then log in
+            // Else, ask user if they want to create a new account and if yes, then log in (In Flow App dont return to create new account)
                 if (window.confirm("An account does not exist with this email address: " + email + ". Do you want to create a new account?")) {
                     logIn()
                 }
