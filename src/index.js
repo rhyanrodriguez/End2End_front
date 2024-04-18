@@ -4,41 +4,49 @@ import Login from './login';
 import './App.css';
 import { useEffect, useState } from 'react';
 
+
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false)
-  const [email, setEmail] = useState("")
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-  useEffect(() => {
-   
-    const user = JSON.parse(localStorage.getItem("user"))
-
-    if (!user || !user.token) {
-      setLoggedIn(false)
-      return
-    }
-
-    fetch("http://localhost:3080/verify", {
-            method: "POST",
-            headers: {
-                'jwt-token': user.token
-              }
-        })
-        .then(r => r.json())
-        .then(r => {
-            setLoggedIn('success' === r.message)
-            setEmail(user.email || "")
-        })
-  }, [])
+  const handleSubmit = (event) => {
+      event.preventDefault();
+      console.log('Attempting to log in with', username, password);
+      // Add your login logic here
+  };
 
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
-          <Route path="/login" element={<Login setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+      <div className="mainContainer">
+          <div className="titleContainer">
+              <h1>Flow</h1>
+          </div>
+          <form onSubmit={handleSubmit}>
+              <div className="inputContainer">
+                  <input
+                      type="text"
+                      id="username"
+                      className="inputBox"
+                      placeholder="Login"
+                      value={username}
+                      onChange={e => setUsername(e.target.value)}
+                  />
+              </div>
+              <div className="inputContainer">
+                  <input
+                      type="password"
+                      id="password"
+                      className="inputBox"
+                      placeholder="Senha"
+                      value={password}
+                      onChange={e => setPassword(e.target.value)}
+                  />
+              </div>
+              <input type="submit" value="Entrar" className="loginButton" />
+          </form>
+          <div>
+              <img src="Logo Talst-04.png" alt="Logo" />
+          </div>
+      </div>
   );
 }
 
