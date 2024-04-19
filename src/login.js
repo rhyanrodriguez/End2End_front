@@ -29,13 +29,13 @@ const Login = (props) => {
             return
         }
 
-        if (password.length < 7) {
+        if (password.length < 8) {
             setPasswordError("The password must be 8 characters or longer")
             return
         }
 
         checkAccountExists(accountExists => {
-            if (accountExists)
+            if (accountExists) 
                 logIn()
             else
             // Else, ask user if they want to create a new account and if yes, then log in (In Flow App dont return to create new account)
